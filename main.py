@@ -5,9 +5,7 @@ from game_typing import gameTyping
 def initializer():
     welcome_message()
     #ask_for_bet()
-    ask_for_game()
-
-    gameTyping.calculate_time()
+    game_redirector(ask_for_game())
 
 def welcome_message():
     print("---------------------------------------------------------")
@@ -23,9 +21,18 @@ def ask_for_bet():
 
 def ask_for_game():
     game_list = ["Typing Game"]
-    input(f"Which game do you want to play? \n We have {game_list} now")
+    print(f"These are the games we have now!")
+    for x in game_list:
+        print(f"{game_list.index(x)+1}. {x}\n")
+    y = input("Please enter the number of the game you want to play")
+    return y
 
-
+def game_redirector(y):
+    if int(y) == 1:
+        gameTyping.game_start()
+    else:
+        print(type(y))
+        print("bug")
 
 
 
